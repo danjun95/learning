@@ -1,0 +1,11 @@
+accumulators: allows all executors to increment a shared variable
+
+item-based collaborative filtering
+
+
+
+SparkConf().setMaster("local[*]") lets you use all cores on my machine
+
+If you want to run more than one action on an RDD, you need to cache it. otherwise, it goes away or needs to be reevaluated
+  use .cache() or .persist()
+    persist() optionally lets you cache to disk
