@@ -17,7 +17,7 @@ sc.setCheckpointDir('checkpoint')
 print("\nLoading movie names...")
 nameDict = loadMovieNames()
 
-data = sc.textFile("file:///SparkCourse/ml-100k/u.data")
+data = sc.textFile("ml-100k/u.data")
 
 ratings = data.map(lambda l: l.split()).map(lambda l: Rating(int(l[0]), int(l[1]), float(l[2]))).cache()
 
@@ -25,7 +25,7 @@ ratings = data.map(lambda l: l.split()).map(lambda l: Rating(int(l[0]), int(l[1]
 print("\nTraining recommendation model...")
 rank = 10
 # Lowered numIterations to ensure it works on lower-end systems
-numIterations = 6
+numIterations = 20
 model = ALS.train(ratings, rank, numIterations)
 
 userID = int(sys.argv[1])

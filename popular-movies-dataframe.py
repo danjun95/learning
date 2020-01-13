@@ -17,7 +17,7 @@ spark = SparkSession.builder.config("spark.sql.warehouse.dir", "file:///C:/temp"
 nameDict = loadMovieNames()
 
 # Get the raw data
-lines = spark.sparkContext.textFile("file:///SparkCourse/ml-100k/u.data")
+lines = spark.sparkContext.textFile("C:/Users/Dan/Documents/SparkCourse/ml-100k/u.data")
 # Convert it to a RDD of Row objects
 movies = lines.map(lambda x: Row(movieID =int(x.split()[1])))
 # Convert that to a DataFrame
